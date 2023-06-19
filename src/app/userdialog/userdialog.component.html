@@ -1,0 +1,46 @@
+<div class="content-container">
+    <h2 mat-dialog-title> User Details </h2>
+    
+    <mat-icon id="close-icon" (click)="onClose()">close</mat-icon>
+    </div>
+    <!-- <button mat-stroked-button (click)="onClose()" tabindex="-1"><mat-icon>Close</mat-icon></button> -->
+    <mat-dialog-content>
+        <form name="productForm" [formGroup]="userform">
+            <div class="example-container">
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>User Name</mat-label>
+                    <input formControlName="name" matInput placeholder="User Name" required />
+                    <mat-error *ngIf="!userform.controls['name'].valid">
+                        User name is required
+                    </mat-error>
+                </mat-form-field>
+                </div>
+                <div class="example-container">
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input formControlName="email" matInput type="email" placeholder="Email" required />
+                    <mat-error *ngIf="!userform.controls['email'].valid">
+                        Email is required
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="example-container">
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Mobile Number</mat-label>
+                    <input formControlName="mobile" type="number" matInput  />
+
+                    <mat-error *ngIf="!userform.controls['mobile'].valid">
+                        Mobile number is required
+                    </mat-error>
+                    <mat-hint>Phone number must be 10 digits</mat-hint>
+                </mat-form-field>
+                </div>
+                <div class="example-container">
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>User Address</mat-label>
+                    <textarea formControlName="address" matInput></textarea>
+                </mat-form-field>                </div>
+                <button mat-flat-button color="warn" style="margin-right:20px" [disabled]="!userform.valid" (click)="updateUser()">Update</button>
+                <button mat-flat-button id="cancel" (click)="onClose()"color="warn">Cancel</button>
+          </form>
+    </mat-dialog-content>

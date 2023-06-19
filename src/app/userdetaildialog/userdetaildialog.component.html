@@ -1,0 +1,47 @@
+<div class="content-container">
+    
+    <h2 mat-dialog-title> Update User Details </h2>
+    <mat-icon id="close-icon" (click)="onClose()">close</mat-icon>
+</div>
+<!-- <button mat-stroked-button (click)="onClose()" tabindex="-1"><mat-icon>Close</mat-icon></button> -->
+<mat-dialog-content>
+    <form name="userdetailForm" [formGroup]="userdetailform">
+        <div class="example-container">
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Education</mat-label>
+                <input formControlName="education" placeholder="Education" matInput required />
+                <mat-error *ngIf="!userdetailform.controls['education'].valid">
+                    Education is required
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Profession</mat-label>
+                <input matInput formControlName="profession" placeholder="Profession"  required />
+                <mat-error *ngIf="!userdetailform.controls['profession'].valid">
+                    Profession is required
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="example-container">
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Experience</mat-label>
+                <input formControlName="experience" type="number" matInput />
+          <mat-error
+                    *ngIf="!userdetailform.controls['experience'].valid">
+                    Experience is required
+                </mat-error>
+            </mat-form-field>
+         <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Additional Details</mat-label>
+                <textarea formControlName="additional" matInput></textarea>
+            </mat-form-field>
+        </div>
+        <div class="example-container radio-btn">
+        <mat-radio-group aria-label="Select an option" formControlName="gender">
+            <mat-radio-button value="male" style="margin-right:20px">Male</mat-radio-button>
+            <mat-radio-button value="female">Female</mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <button mat-flat-button color="warn" style="margin-right:20px" [disabled]="!userdetailform.valid" (click)="updateUser()">Update</button>
+        <button mat-flat-button id="cancel" (click)="onClose()" color="warn">Cancel</button>
+        <div>

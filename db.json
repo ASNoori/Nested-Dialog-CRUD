@@ -1,0 +1,98 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "user": [
+    {
+      "name": "uuu",
+      "email": "uu@as.co",
+      "mobile": 5767657676,
+      "address": "dgfd",
+      "id": 7
+    },
+    {
+      "name": "ccc",
+      "email": "cc@as.kl",
+      "mobile": 8754895995,
+      "address": "hgh",
+      "id": 8
+    },
+    {
+      "name": "asdf",
+      "email": "asdf@adsf.com",
+      "mobile": 1234567890,
+      "address": "asdf asdf asdf",
+      "id": 9
+    },
+    {
+      "name": "vb",
+      "email": "vb",
+      "mobile": 4545465576,
+      "address": "gh",
+      "id": 10
+    }
+  ],
+  "userdetail": [
+    {
+      "education": "c",
+      "profession": "c",
+      "experience": 5,
+      "additional": "c",
+      "gender": "female",
+      "userid": 6,
+      "id": 3
+    },
+    {
+      "education": "hao",
+      "profession": "h",
+      "experience": 5,
+      "additional": "sd",
+      "gender": "female",
+      "userid": 6,
+      "id": 8
+    },
+    {
+      "education": "j",
+      "profession": "j",
+      "experience": 7,
+      "additional": "df",
+      "gender": "male",
+      "userid": 8,
+      "id": 9
+    },
+    {
+      "education": "fa",
+      "profession": "aa",
+      "experience": 12,
+      "additional": "sdsd",
+      "gender": "male",
+      "userid": 6,
+      "id": 10
+    },
+    {
+      "education": "so",
+      "profession": "h",
+      "experience": 3,
+      "additional": "hf",
+      "gender": "male",
+      "userid": 9,
+      "id": 11
+    },
+    {
+      "education": "c",
+      "profession": "b",
+      "experience": 6,
+      "additional": "gvh",
+      "gender": "female",
+      "userid": 7,
+      "id": 12
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

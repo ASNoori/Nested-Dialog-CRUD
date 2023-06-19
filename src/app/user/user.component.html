@@ -1,0 +1,83 @@
+<mat-card>
+    <mat-card-content>
+        <div class="header">
+            <h1>User Details</h1>
+        </div>
+        <form name="userform" [formGroup]="userform" #formDirective="ngForm" (ngSubmit)="addUser(formDirective)">
+            <div class="example-container">
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>User Name</mat-label>
+                    <input formControlName="name" matInput placeholder="User Name" type="text" />
+                    <mat-error *ngIf="!userform.controls['name'].valid">
+                        User name is required
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input formControlName="email" matInput type="email" placeholder="Email" />
+                    <mat-error *ngIf="!userform.controls['email'].valid">
+                        Email is required
+                    </mat-error>
+                </mat-form-field>
+                <button mat-raised-button type="submit" [disabled]="!userform.valid" class="button-row button-width"
+                    color="warn">
+                    Save
+                </button>
+            </div>
+            <div class="example-container">
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Mobile Number</mat-label>
+                    <input formControlName="mobile" placeholder="10 digits phone number" type="number" matInput />
+
+                    <mat-error *ngIf="!userform.controls['mobile'].valid">
+                    </mat-error>
+                    <mat-hint>Phone number must be 10 digits</mat-hint>
+                </mat-form-field>
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>User Address</mat-label>
+                    <textarea formControlName="address" matInput type="text"></textarea>
+                </mat-form-field>
+            </div>
+            <div>
+                <table mat-table [dataSource]="UserData" class="mat-elevation-z8 demo-table">
+                    <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef>User name</th>
+                        <td mat-cell *matCellDef="let element">{{element.name}}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="email">
+                        <th mat-header-cell *matHeaderCellDef>Email</th>
+
+                        <td mat-cell *matCellDef="let element">{{element.email}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="mobile">
+                        <th mat-header-cell *matHeaderCellDef>Mobile No</th>
+                        <td mat-cell *matCellDef="let element">{{element.mobile}}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="address">
+                        <th mat-header-cell *matHeaderCellDef>Address</th>
+                        <td mat-cell *matCellDef="let element">{{element.address}}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="action">
+                        <th mat-header-cell *matHeaderCellDef>Actions</th>
+                        <td mat-cell *matCellDef="let element">
+                            <button type="button" mat-icon-button color="primary" (click)="editUser(element)">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                            <button type="button" mat-icon-button color="warn"
+                                (click)="yesNoDialog(element.id,element)">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                            <button type="button" mat-icon-button class="add" (click)="additionaldetail(element)">
+                                <mat-icon>add_circle</mat-icon>
+                            </button>
+                        </td>
+
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                </table>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,28 @@
+.example-container .mat-form-field + .mat-form-field {
+    margin-left: 20px;
+  }
+
+  .full-width {
+    width: 100%;
+  }
+  .button-row {
+    padding-top: 5px;
+   
+  }
+#close-icon{
+    margin-left: auto;
+    order: 2;
+    font-weight: bolder;
+}
+#close-icon:hover{
+cursor: pointer;
+}
+.content-container{
+  margin: 5px 5px 15px 5px;
+  color: #8f9cb5;
+  display: flex;
+}
+
+.mat-dialog-title{
+   color:black;
+}

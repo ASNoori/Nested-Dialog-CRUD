@@ -1,0 +1,31 @@
+.example-container .mat-form-field + .mat-form-field {
+    margin-left: 20px;
+  }
+
+  .full-width {
+    width: 30%;
+  }
+  .button-row {
+    padding-top: 5px;
+  }
+  .demo-table {
+    width: 100%;
+  }
+  
+  .demo-button-container {
+    padding-bottom: 16px;
+  }
+  
+  .demo-button + .demo-button {
+    margin-left: 8px;
+   
+  }
+  .add{
+    color:green;
+  }
+  
+ 
+  .button-width{
+    margin-left:8%;
+    width:10%
+  }

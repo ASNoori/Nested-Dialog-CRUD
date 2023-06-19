@@ -1,0 +1,86 @@
+<div class="content-container">
+
+    <h2 mat-dialog-title> {{this.username}}'s additional info </h2>
+    <mat-icon id="close-icon" (click)="onClose()">close</mat-icon>
+</div>
+<!-- <button mat-stroked-button (click)="onClose()" tabindex="-1"><mat-icon>Close</mat-icon></button> -->
+<mat-dialog-content>
+    <form name="userdetailForm" [formGroup]="userdetailform">
+        <div class="example-container">
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Education</mat-label>
+                <input formControlName="education" placeholder="Education" matInput required />
+                <mat-error *ngIf="!userdetailform.controls['education'].valid">
+                    Education is required
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Profession</mat-label>
+                <input matInput formControlName="profession" placeholder="Profession" required />
+                <mat-error *ngIf="!userdetailform.controls['profession'].valid">
+                    Profession is required
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="example-container">
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Experience</mat-label>
+                <input formControlName="experience" type="number" matInput />
+                <mat-error *ngIf="!userdetailform.controls['experience'].valid">
+                    Experience is required
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Additional Details</mat-label>
+                <textarea formControlName="additional" matInput></textarea>
+            </mat-form-field>
+        </div>
+        <div class="example-container radio-btn">
+            <mat-radio-group aria-label="Select an option" formControlName="gender">
+                <mat-radio-button value="male" style="margin-right:20px">Male</mat-radio-button>
+                <mat-radio-button value="female">Female</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <button mat-flat-button color="warn" style="margin-right:20px" [disabled]="!userdetailform.valid"
+            (click)="adduserdetail()">Save</button>
+        <button mat-flat-button id="cancel" (click)="onClose()" color="warn">Cancel</button>
+        <div>
+            <table mat-table [dataSource]="UserDetail" class="mat-elevation-z8 demo-table">
+                <ng-container matColumnDef="education">
+                    <th mat-header-cell *matHeaderCellDef>Education</th>
+                    <td mat-cell *matCellDef="let element">{{element.education}}</td>
+                </ng-container>
+                <ng-container matColumnDef="profession">
+                    <th mat-header-cell *matHeaderCellDef>Profession</th>
+
+                    <td mat-cell *matCellDef="let element">{{element.profession}} </td>
+                </ng-container>
+                <ng-container matColumnDef="experience">
+                    <th mat-header-cell *matHeaderCellDef>Experience</th>
+                    <td mat-cell *matCellDef="let element">{{element.experience}}</td>
+                </ng-container>
+                <ng-container matColumnDef="gender">
+                    <th mat-header-cell *matHeaderCellDef>Gender</th>
+                    <td mat-cell *matCellDef="let element">{{element.gender}}</td>
+                </ng-container>
+                <ng-container matColumnDef="action">
+                    <th mat-header-cell *matHeaderCellDef>Actions</th>
+                    <td mat-cell *matCellDef="let element">
+                        <button mat-icon-button color="primary" (click)="editUserdetail(element)">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button color="warn" (click)="yesNoDialog(element.id,element)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+
+                    </td>
+
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            </table>
+        </div>
+    </form>
+
+</mat-dialog-content>
